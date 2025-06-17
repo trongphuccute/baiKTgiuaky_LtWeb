@@ -1,82 +1,177 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV HUYNH TRONG PHUC</title>
+    <title>Smith Jordan - CV</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="cv-container">
-      <aside class="sidebar">
-        <div class="profile-pic">
-          <img src="avatar.png" alt="HUYNH TRONG PHUC" />
-        </div>
-        <h1>HUYNH TRONG PHUC</h1>
-        <h2>WEBSITE DESIGNER</h2>
-
-        <section class="contact">
-          <h3>CONTACT</h3>
-          <p>📞 0899533878</p>
-          <p>📧 phucht6535@ut.edu.vn</p>
-        </section>
-
-        <section class="languages">
-          <h3>LANGUAGES</h3>
-          <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JAVA</li>
-            <li>MYSQL</li>
-            <li>FLUTTER</li>
-          </ul>
-        </section>
-
-        <section class="skills">
-          <h3>SKILL</h3>
-          <ul>
-            <li>WEBSITE DESIGN</li>
-            <li>TEAM PLAYER</li>
-            <li>MOBILE PROGRAMMING</li>
-            <li>TIME MANAGEMENT</li>
-          </ul>
-        </section>
-
-        <section class="hobbies">
-          <h3>HOBBIES</h3>
-          <div class="icons"><span>🎵</span><span>🎮</span></div>
-        </section>
-      </aside>
-
-      <main class="main-content">
-        <section class="about">
-          <h3>ABOUT ME 👤</h3>
-          <p>
-            Tôi là sinh viên năm 2 đại học nhiệt tình trong công việc có nền
-            tảng học vấn vững chắc, đam mê với ngàng công nghệ đặc biệt trong
-            lĩnh vực code. Tôi đang học hỏi và không ngừng tìm kiếm một cơ hội
-            thực tập để trao dồi thêm kinh nghiệm trong lĩnh vực backend
-          </p>
-        </section>
-
-        <section class="education">
-          <h3>EDUCATION ✏️</h3>
-          <p><strong>Trường:</strong> Đại Học Giao Thông Vận Tải TP.HCM</p>
-          <p><strong>Ngành:</strong> Công nghệ thông tin</p>
-          <p><strong>2024-2025:</strong> Học Kỳ I - GPA: 3.22/4,</p>
-          <p><strong>2023-2024:</strong> Học Kỳ II - GPA: 3.52/4,</p>
-          <p><strong>2023-2024:</strong> Học Kỳ I - GPA: 3.63/4</p>
-        </section>
-
-        <section class="experience">
-          <h3>WORD EXPERIENCE ✍️</h3>
-          <p>Làm nhiều bài tập,dự án nhóm.</p>
-          <p>thành thạo git, HTML/CSS, FLutter.</p>
-          <p>Kiên nhẫn, kỹ năng làm việc nhóm tốt.</p>
-        </section>
-      </main>
+    <div class="nav-container">
+      <button class="toggle-btn" onclick="toggleContact()">
+        Toggle Contact
+      </button>
+      <button class="nav-btn" onclick="scrollToSection('summary')">
+        Summary
+      </button>
+      <button class="nav-btn" onclick="scrollToSection('experience')">
+        Experience
+      </button>
+      <button class="nav-btn" onclick="scrollToSection('education')">
+        Education
+      </button>
+      <button class="nav-btn" onclick="scrollToSection('projects')">
+        Projects
+      </button>
+      <button class="nav-btn" onclick="scrollToSection('cv-contact')">
+        Contact
+      </button>
     </div>
 
-    <script src="script.js"></script>
+    <div class="container">
+      <div class="sidebar">
+        <div class="sidebar-banner">
+          <div class="photo"></div>
+          <h1>HUYNH TRONG <span>PHUC</span></h1>
+          <p>Data Business Analytics</p>
+        </div>
+
+        <div class="section scroll-animate cv-contact" id="cv-contact">
+          <h2>Contact</h2>
+          <ul class="contact">
+            <li>Email: phuc13032005@gmail.com</li>
+            <li>Phone: 0899 533 878</li>
+            <li>
+              Facebook:
+              <a
+                href="https://www.facebook.com/htrphucdepzai/?locale=vi_VN"
+                target="_blank"
+                >Huỳnh Trọng Phúc</a
+              >
+            </li>
+            <li>
+              Github:
+              <a href="https://github.com/trongphuccute" target="_blank"
+                >trongphuccute</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="section scroll-animate">
+          <h2>Skills</h2>
+          <ul class="skills">
+            <li>Làm việc nhóm</li>
+            <li>Phân tích và xây dựng nền tảng web</li>
+            <li>Thành thạo các tin học cơ bản</li>
+            <li>Quản lý thời gian hợp lý</li>
+          </ul>
+        </div>
+
+        <div class="section scroll-animate">
+          <h2>Languages</h2>
+          <ul class="skills">
+            <li>Tiếng Anh</li>
+            <li>Tiếng Việt</li>
+          </ul>
+        </div>
+
+        <div class="section scroll-animate">
+          <h2>Hobbies</h2>
+          <ul class="skills">
+            <li>Xem phim</li>
+            <li>Đi du lịch</li>
+            <li>Đọc sách và đá bóng</li>
+          </ul>
+        </div>
+
+        <div class="section scroll-animate">
+          <h2>Certificates</h2>
+          <ul class="skills">
+            <li>Ielts band 6.5+ - 2025</li>
+            <li>Mos - 2022</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="section scroll-animate" id="summary">
+          <h2>Summary</h2>
+          <p>
+            Đối với một sinh viên năm 2 đầy nhiệt huyết, tham vọng như em. Em
+            mong muốn sẽ thành thạo các ngôn ngữ lập trình yêu thích và có những
+            dự án đầy triển vọng trong tương lai.
+          </p>
+        </div>
+
+        <div class="section scroll-animate" id="experience">
+          <h2>Work Experience</h2>
+          <div class="item">
+            <h3>2011 - 2014: web developer  - Công Ty ABC</h3>
+            <p>
+              Cùng công ty tạo ra dự án web đưa đến tay người dùng.
+            </p>
+          </div>
+          <div class="item">
+            <h3>2014 - 2016: Mobile developer - Công Ty B</h3>
+            <p>Cùng nhóm trong công ty phát triển ứng dụng mobile</p>
+          </div>
+        </div>
+
+        <div class="section scroll-animate" id="education">
+          <h2>Education</h2>
+          <div class="item">
+            <h3>2027: Tốt nghiệp đại học</h3>
+            <p> Đại Học Giao Thông Vận Tải TP.HCM</p>
+          </div>
+        </div>
+
+        <div class="section scroll-animate" id="projects">
+          <h2>Projects</h2>
+          <div class="item">
+            <h3>Cai nghiện thuốc lá </h3>
+            <p>
+              Nền tảng giúp người dùng theo dỏi chu trình cai nghiện thuốc giá có các chức năng như chia sẽ khinh nghiệm, chat với Coach,... "đang hoàn thiện"
+            </p>
+          </div>
+          <div class="item">
+            <h3>App Quản Lý Kho Hàng Xuất Nhập Khẩu</h3>
+            <p>
+             Ứng dụng giúp người dùng quản lý việc cuất nhập khẩu các hàng hóa gồm có các chức năng như: xuất, nhập, kiểm kê,... "Đang hoàn thiện"
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const scrollElements = document.querySelectorAll(".scroll-animate");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      scrollElements.forEach((el) => observer.observe(el));
+
+      function toggleContact() {
+        const contactSection = document.querySelector(".cv-contact");
+        contactSection.classList.toggle("hidden");
+      }
+
+      function scrollToSection(id) {
+        const element = document.getElementById(id);
+        if (element) {
+          window.scrollTo({
+            top: element.offsetTop - 60,
+            behavior: "smooth",
+          });
+        }
+      }
+    </script>
   </body>
 </html>
