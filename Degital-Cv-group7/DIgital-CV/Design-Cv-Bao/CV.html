@@ -2,107 +2,399 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <title>CV Sinh viên IT - Tạ Đức Bảo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Web - Tạ Đức Bảo</title>
+    <!-- Google Fonts và Font Awesome cho giao diện hiện đại -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
+        :root {
+            --primary: #2176ae;
+            --secondary: #1a2930;
+            --accent: #fbb034;
+            --bg: #f7fafd;
+            --white: #fff;
+            --border: #e0e7ef;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: var(--bg);
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            color: var(--secondary);
         }
-        .sidebar {
-            width: 250px;
-            height: 100vh;
-            background-color: #ff9900;
-            color: white;
-            position: fixed;
-            padding-top: 20px;
-        }
-        .sidebar h2 {
+        /* ===== Banner đầu trang ===== */
+        .banner {
+            background: linear-gradient(120deg, #2886bb 60%, #18547a 100%);
+            color: var(--white);
+            padding: 36px 0 18px 0;
             text-align: center;
-            margin-bottom: 20px;
+            position: relative;
+        }
+        .banner h1 {
+            font-size: 2.3em;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            letter-spacing: 2px;
+        }
+        .banner .job-title {
+            font-size: 1.13em;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .banner .summary {
+            font-size: 1.08em;
+            max-width: 700px;
+            margin: 12px auto 0 auto;
+            color: #e9e9e9;
+        }
+        /* ===== Layout grid chính ===== */
+        .container {
+            max-width: 1100px;
+            margin: 32px auto 0 auto;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 36px;
+            background: var(--white);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(44,62,80,0.10);
+            overflow: hidden;
+        }
+        /* ===== Sidebar trái: Ảnh, thông tin, liên hệ, học vấn ===== */
+        .sidebar {
+            background: linear-gradient(135deg, var(--primary) 80%, var(--accent) 100%);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px 18px 24px 18px;
+        }
+        .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            margin-bottom: 18px;
+            animation: avatarPop 1s cubic-bezier(.4,2,.6,1.2);
+        }
+        @keyframes avatarPop {
+            0% {transform: scale(0.7) rotate(-10deg); opacity: 0;}
+            80% {transform: scale(1.1) rotate(2deg);}
+            100% {transform: scale(1) rotate(0); opacity: 1;}
+        }
+        .section-title {
+            font-size: 1.08em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            margin-top: 14px;
+            letter-spacing: 1px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 7px;
         }
         .sidebar ul {
-            list-style-type: none;
+            list-style: none;
             padding: 0;
+            margin: 0;
         }
-        .sidebar ul li {
-            padding: 10px 20px;
-            cursor: pointer;
+        .sidebar li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1em;
         }
-        .sidebar ul li:hover {
-            background-color: #e68a00;
+        .social-list {
+            display: flex;
+            justify-content: flex-start;
+            gap: 16px;
+            margin: 10px 0 0 0;
         }
-        .content {
-            margin-left: 260px;
-            padding: 20px;
-        }
-        .profile-img {
-            width: 100px;
-            height: 100px;
+        .social-list a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            display: block;
-            margin: 0 auto 20px;
+            background: #e0e7ef;
+            color: var(--primary);
+            font-size: 1.3em;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            text-decoration: none;
         }
-        .section {
-            margin-bottom: 20px;
+        .social-list a:hover {
+            background: var(--accent);
+            color: var(--secondary);
+            transform: scale(1.12);
         }
-        .section h3 {
-            color: #ff9900;
+        /* ===== Main content phải ===== */
+        .main-content {
+            padding: 32px 38px 24px 38px;
+        }
+        .main-block {
+            margin-bottom: 32px;
+        }
+        .main-block-title {
+            font-size: 1.13em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .main-block ul {
+            list-style: disc;
+            padding-left: 22px;
+        }
+        .main-block ul li {
+            margin-bottom: 7px;
+        }
+        .skills-bar {
+            background: #e0e7ef;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 10px;
+            width: 100%;
+            margin-top: 2px;
+        }
+        .skills-bar-inner {
+            height: 10px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 1s;
+        }
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+        }
+        .project-table th, .project-table td {
+            border: 1px solid #d2e4f1;
+            padding: 7px 10px;
+            text-align: left;
+        }
+        .project-table th {
+            background: #f6f8fc;
+            color: var(--primary);
+        }
+        @media (max-width: 950px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 0 0;
+            }
+            .main-content {
+                padding: 24px 5vw 16px 5vw;
+            }
+        }
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 10px 2vw;
+            }
+            .sidebar {
+                padding: 16px 2vw 10px 2vw;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h2>Tạ Đức Bảo</h2>
-        <img src="z6695923074766_a1befbb8300c3340c8e92717dd05b85c.jpg" alt="Profile Picture" class="profile-img">
-        <ul>
-            <li>ABOUT ME</li>
-            <li>EDUCATION</li>
-            <li>CONTACT</li>
-            <li>WORD EXPERIENCE</li>
-            <li>LANGUAGES</li>
-            <li>SKILL</li>
-            <li>HOBBIES</li>
-        </ul>
+    <!-- ===== Banner đầu trang với tên, ngành học và tóm tắt bản thân ===== -->
+    <div class="banner">
+        <h1>Tạ Đức Bảo</h1>
+        <div class="job-title">Sinh viên năm 2 ngành Công nghệ thông tin</div>
+        <div class="summary">
+            Là sinh viên năm 2 Đại học Bách khoa TP.HCM, tôi được đào tạo bài bản về phát triển phần mềm, quản lý dự án CNTT và có kinh nghiệm thực tế qua nhiều dự án nhóm. Tôi luôn chủ động học hỏi công nghệ mới, tích cực tham gia hoạt động ngoại khóa, hướng tới phát triển toàn diện kỹ năng chuyên môn và kỹ năng mềm để trở thành lập trình viên chuyên nghiệp.
+        </div>
     </div>
-    <div class="content">
-        <div class="section">
-            <h3>ABOUT ME</h3>
-            <p>Tôi là một sinh viên năm 2 đại học chính thức trong ngành công nghệ thông tin, tôi đang học về các ngôn ngữ lập trình như HTML, CSS, JavaScript và đang tìm hiểu thêm về các ngôn ngữ khác để phát triển kỹ năng lập trình.</p>
-        </div>
-        <div class="section">
-            <h3>EDUCATION</h3>
-            <p>Trường: Đại Học Giao Thông Vận Tải TP.HCM</p>
-            <p>Ngành: Công nghệ thông tin</p>
-            <p>2024-2026: Học kỳ I - GPA: 3.22/4</p>
-            <p>2023-2024: Học kỳ II - GPA: 3.52/4</p>
-            <p>2023-2024: Học kỳ I - GPA: 3.63/4</p>
-        </div>
-        <div class="section">
-            <h3>CONTACT</h3>
-            <p>Phone: 0364600410</p>
-            <p>Email: baotd2050@ut.edu.vn</p>
-        </div>
-        <div class="section">
-            <h3>WORD EXPERIENCE</h3>
-            <p>Làm thêm bán thời gian tại cửa hàng.</p>
-            <p>Thực tập HTML/CSS, Flutter.</p>
-            <p>Kiếm thêm bằng cách làm việc tự do.</p>
-        </div>
-        <div class="section">
-            <h3>LANGUAGES</h3>
-            <p>Tiếng Việt, Tiếng Anh.</p>
-        </div>
-        <div class="section">
-            <h3>SKILL</h3>
-            <p>Website Design, Team Player, Mobile Programming, Time Management</p>
-        </div>
-        <div class="section">
-            <h3>HOBBIES</h3>
-            <p>Âm nhạc, Game</p>
-        </div>
+    <!-- ===== Layout grid: Sidebar trái và Main content phải ===== -->
+    <div class="container">
+        <!-- ===== Sidebar trái: Ảnh, thông tin cá nhân, liên hệ, học vấn ===== -->
+        <aside class="sidebar">
+            <!-- Ảnh cá nhân sinh viên -->
+            <img src="z6710517683276_465bdd5dcb48cb977ef7ff5cecfbfc3f.jpg" alt="Ảnh cá nhân" class="avatar">
+            <!-- Thông tin cá nhân -->
+            <section>
+                <div class="section-title"><i class="fa-solid fa-id-card"></i> Thông tin cá nhân</div>
+                <ul>
+                    <li><i class="fa-solid fa-user"></i> Tạ Đức Bảo</li>
+                    <li><i class="fa-solid fa-cake-candles"></i> 11/05/2005</li>
+                    <li><i class="fa-solid fa-mars"></i> Nam</li>
+                    <li><i class="fa-solid fa-location-dot"></i> TP. Hồ Chí Minh</li>
+                </ul>
+            </section>
+            <!-- Liên hệ & mạng xã hội -->
+            <section>
+                <div class="section-title"><i class="fa-solid fa-address-book"></i> Liên hệ</div>
+                <ul>
+                    <li><i class="fa-solid fa-envelope"></i> baotd2050@gmail.com</li>
+                    <li><i class="fa-solid fa-phone"></i> 1234 567 890</li>
+                </ul>
+                <div class="social-list">
+                    <a href="https://www.facebook.com/thanh.ngung.146" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/ducbao" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.threads.net/@ducbao" target="_blank" title="Threads"><i class="fab fa-threads"></i></a>
+                    <a href="https://zalo.me/0901234567" target="_blank" title="Zalo"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo" style="width:1.1em;height:1.1em;vertical-align:middle;"></a>
+                </div>
+            </section>
+            <!-- Học vấn chi tiết -->
+            <section>
+                <div class="section-title"><i class="fa-solid fa-graduation-cap"></i> Học vấn</div>
+                <ul>
+                    <li>
+                        <strong>Đại học Giao Thông Vận Tải TP.HCM</strong><br>
+                        Chuyên ngành: Kỹ thuật phần mềm<br>
+                        Thời gian: 09/2020 – 06/2024<br>
+                        GPA: 3.45/4.0<br>
+                        GPA: 3.50/4.0<br>
+                        GPA: 3.35/4.0<br>
+                
+                        Các môn chuyên ngành nổi bật: Lập trình hướng đối tượng (A), Lập trình thiết bị di động (A+), Thiết kế phần mềm (A)
+                    </li>
+                </ul>
+            </section>
+            <!-- Sở thích -->
+            <section>
+                <div class="section-title"><i class="fa-solid fa-heart"></i> Sở thích</div>
+                <ul>
+                    <li>Tham gia CLB lập trình, hackathon</li>
+                    <li>Đọc sách công nghệ, blog lập trình</li>
+                    <li>Chơi bóng đá, cầu lông</li>
+                    <li>Du lịch, khám phá văn hóa</li>
+                </ul>
+            </section>
+        </aside>
+        <!-- ===== Main content phải: Các mục nội dung chi tiết ===== -->
+        <main class="main-content">
+            <!-- Mục tiêu nghề nghiệp -->
+            <section class="main-block">
+                <div class="main-block-title"><i class="fa-solid fa-bullseye"></i> Mục tiêu nghề nghiệp</div>
+                <ul>
+                    <li><strong>Ngắn hạn:</strong> Hoàn thành xuất sắc chương trình đại học, tích lũy kinh nghiệm qua thực tập, dự án nhóm, nâng cao kỹ năng lập trình web và mobile.</li>
+                    <li><strong>Dài hạn:</strong> Trở thành lập trình viên Fullstack, tham gia phát triển các sản phẩm công nghệ lớn, hướng tới vị trí quản lý kỹ thuật hoặc trưởng nhóm dự án trong 5 năm tới.</li>
+                </ul>
+            </section>
+            <!-- Kỹ năng chuyên môn và kỹ năng mềm -->
+            <section class="main-block">
+                <div class="main-block-title"><i class="fa-solid fa-code"></i> Kỹ năng chuyên môn</div>
+                <ul>
+                    <li>
+                        HTML, CSS, JavaScript
+                        <div class="skills-bar"><div class="skills-bar-inner" style="width: 95%"></div></div>
+                    </li>
+                    <li>
+                        ReactJS, Bootstrap, Redux
+                        <div class="skills-bar"><div class="skills-bar-inner" style="width: 90%"></div></div>
+                    </li>
+                    <li>
+                        NodeJS, ExpressJS, MongoDB, MySQL
+                        <div class="skills-bar"><div class="skills-bar-inner" style="width: 85%"></div></div>
+                    </li>
+                    <li>
+                        Git, Github, Docker cơ bản
+                        <div class="skills-bar"><div class="skills-bar-inner" style="width: 80%"></div></div>
+                    </li>
+                    <li>
+                        Sử dụng thành thạo Microsoft Office, Google Workspace
+                        <div class="skills-bar"><div class="skills-bar-inner" style="width: 90%"></div></div>
+                    </li>
+                </ul>
+                <div class="main-block-title" style="margin-top:20px;"><i class="fa-solid fa-users"></i> Kỹ năng mềm</div>
+                <ul>
+                    <li>Kỹ năng làm việc nhóm, giao tiếp hiệu quả</li>
+                    <li>Kỹ năng quản lý thời gian, tự học</li>
+                    <li>Kỹ năng thuyết trình, trình bày ý tưởng</li>
+                    <li>Khả năng thích nghi nhanh với môi trường mới</li>
+                </ul>
+            </section>
+            <!-- Ngôn ngữ -->
+            <section class="main-block">
+                <div class="main-block-title"><i class="fa-solid fa-language"></i> Ngoại ngữ</div>
+                <ul>
+                    <li>Tiếng Việt (Bản địa)</li>
+                    <li>Tiếng Anh (IELTS 6.5, đọc hiểu tài liệu chuyên ngành tốt, giao tiếp khá)</li>
+                </ul>
+            </section>
+            <!-- Kinh nghiệm thực tập, làm việc, hoạt động -->
+            <section class="main-block">
+                <div class="main-block-title"><i class="fa-solid fa-briefcase"></i> Kinh nghiệm thực tập & hoạt động</div>
+                <ul>
+                    <li>
+                        
+                        
+                    
+                    <li>
+                        <strong>Thành viên CLB HUST Developers</strong> (2022 – nay)
+                        <ul>
+                            <li>Tham gia tổ chức các buổi workshop về lập trình web, AI, IoT.</li>
+                            <li>Đồng tổ chức Hackathon nội bộ, đạt giải Ba với dự án “Smart Home WebApp”.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Freelancer Frontend Developer</strong> (2022)
+                        <ul>
+                            <li>Thiết kế, phát triển giao diện cho 2 website bán hàng nhỏ (HTML, CSS, JS, Bootstrap).</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- Chứng chỉ, giải thưởng -->
+            <section class="main-block">
+                <div class="main-block-title"><i class="fa-solid fa-certificate"></i> Chứng chỉ & Giải thưởng</div>
+                <ul>
+                    <li>Chứng chỉ Lập trình Web Fullstack – FUNiX (2023)</li>
+                    <li>Chứng chỉ tiếng Anh IELTS 6.5 (2023)</li>
+                </ul>
+            </section>
+            <!-- Dự án tiêu biểu: trình bày dạng bảng chi tiết -->
+            <section class="main-block">
+                <div class="main-block-title"><i class="fa-solid fa-diagram-project"></i> Dự án tiêu biểu</div>
+                <table class="project-table">
+                    <tr>
+                        <th>Tên dự án</th>
+                        <th>Vai trò</th>
+                        <th>Công nghệ</th>
+                        <th>Mô tả</th>
+                        <th>Kết quả</th>
+                    </tr>
+                    <tr>
+                        <td>Website Quản lý Sinh viên</td>
+                        <td>Fullstack Developer</td>
+                        <td>ReactJS, NodeJS, MongoDB</td>
+                        <td>Xây dựng hệ thống quản lý sinh viên cho phòng đào tạo, cho phép theo dõi điểm, lớp, lịch học.</td>
+                        <td>Triển khai nội bộ, giúp giảm 40% thời gian quản lý thủ công.</td>
+                    </tr>
+                    <tr>
+                        <td>Portfolio Cá nhân</td>
+                        <td>Frontend Developer</td>
+                        <td>HTML, CSS, JS, Bootstrap</td>
+                        <td>Thiết kế giao diện, tối ưu responsive, giới thiệu bản thân và các dự án cá nhân.</td>
+                        <td>Nhận phản hồi tích cực từ nhà tuyển dụng, tăng cơ hội phỏng vấn.</td>
+                    </tr>
+                    <tr>
+                        <td>Smart Home WebApp</td>
+                        <td>Nhóm trưởng</td>
+                        <td>ReactJS, Firebase, IoT</td>
+                        <td>Điều khiển thiết bị nhà thông minh qua web, realtime với Firebase.</td>
+                        <td>Đạt giải Ba Hackathon CLB HUST Developers.</td>
+                    </tr>
+                </table>
+            </section>
+            <!-- Thông tin thêm: Điểm mạnh, định hướng cá nhân -->
+            <section class="main-block">
+                <div class="main-block-title"><i class="fa-solid fa-star"></i> Điểm mạnh & Định hướng cá nhân</div>
+                <ul>
+                    <li>Tư duy logic, khả năng giải quyết vấn đề tốt.</li>
+                    <li>Chủ động học hỏi công nghệ mới, cập nhật xu hướng IT.</li>
+                    <li>Khả năng làm việc dưới áp lực, quản lý thời gian hiệu quả.</li>
+                    <li>Định hướng phát triển lâu dài trong lĩnh vực phát triển phần mềm, đặc biệt là các sản phẩm phục vụ giáo dục, y tế, cộng đồng.</li>
+                </ul>
+            </section>
+                </ul>
+            </section>
+        </main>
     </div>
 </body>
 </html>
